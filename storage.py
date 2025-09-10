@@ -1,4 +1,3 @@
-# storage.py
 from sqlalchemy import create_engine, Column, Integer, String, Float, DateTime, UniqueConstraint
 from sqlalchemy.orm import declarative_base, sessionmaker
 from datetime import datetime
@@ -28,7 +27,7 @@ mercado = Column(String, index=True)
 preco = Column(Float)
 unidade = Column(String, default="un")
 url = Column(String, nullable=True)
-origem = Column(String, default="web") # web | whatsapp
+origem = Column(String, default="web")
 cep_area = Column(String, nullable=True)
 timestamp = Column(DateTime, default=datetime.utcnow)
 __table_args__ = (
