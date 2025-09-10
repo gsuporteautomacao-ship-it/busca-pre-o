@@ -1,27 +1,6 @@
 # app.py
 
 
-st.title("🛒 IA Recomenda Preços – MVP")
-colA, colB = st.columns([2,1])
-
-
-with colB:
-st.subheader("Configurações")
-cep = st.text_input("CEP/Área (opcional)", value="")
-if 'wishlist' not in st.session_state:
-st.session_state['wishlist'] = []
-
-
-with st.form("frm_add"):
-st.markdown("**Adicionar item à lista**")
-nome = st.text_input("Item (ex: Café Melitta 500g)")
-marca = st.text_input("Marca (opcional)")
-categoria = st.text_input("Categoria (opcional)")
-add = st.form_submit_button("Adicionar")
-if add and nome:
-st.session_state['wishlist'].append({'nome': nome, 'marca': marca or None, 'categoria': categoria or None})
-
-
 if st.session_state['wishlist']:
 st.markdown("**Sua lista de desejos**")
 dfw = pd.DataFrame(st.session_state['wishlist'])
